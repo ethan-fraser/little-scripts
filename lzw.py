@@ -3,7 +3,7 @@ def compress(data):
     """ Compresses data into LZW encoded form. Returns encoded data as a hyphen seperated string. """
     d = {}
     for i in data:
-        if i not in d.keys():
+        if i not in d:
             d[i] = ord(i)
     code = 256
     output = ""
@@ -43,7 +43,7 @@ def decompress(data):
 
 
 if __name__ == "__main__":
-    data = input("Enter input: ").strip().lower()
+    data = input("Enter input: ").strip()
 
     print("\ncompressing...")
     cmp = compress(data)
@@ -54,5 +54,4 @@ if __name__ == "__main__":
     print(f"\nOriginal length: {len_data}\nCompressed length: {len_cmp} ({percentage:.2f}%)")
 
     print("\ndecompressing...")
-    dcp = decompress(cmp)
-    print(dcp)
+    print(decompress(cmp))
