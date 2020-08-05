@@ -1,5 +1,5 @@
 import math
-
+import sys
 
 def swap(array, i, j):
     temp = array[i]
@@ -16,7 +16,7 @@ def heapify(array, end, root):
         largest = leftChild
     if rightChild < end and array[rightChild] > array[largest]:
         largest = rightChild
-    
+
     if largest != root:
         swap(array, root, largest)
         heapify(array, end, largest)
@@ -47,16 +47,22 @@ def heapSort(array):
         #reorganise elements into heap
         buildHeapB(array, end)
 
-        
-    
-
-    
-    
 
 if __name__ == "__main__":
-    with open("20-nums") as f:
-        a = f.readlines()
-    a = [int(x.strip()) for x in a]
+    fn = sys.argv[1]
+    try:
+        with open(fn, "r") as f:
+            a = f.readlines()
+    except IOError:
+        print("File \"{fn}\" not found")
+        exit(1)
+
+    for x in a:
+        try:
+            a[a.index(x)] = int(x)
+        except ValueError:
+            print("numbers only please")
+            exit(1)
 
     # a = [3, 4, 6, 3, 8, 12, 20]
 
