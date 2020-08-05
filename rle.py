@@ -25,25 +25,25 @@ def encode(bitstring: str, runlen: int) -> str:
     if bitstring[len(bitstring)-1] == "1":
         encoded_bitstring += "0"*runlen + " "
 
+    # since the last character will always be " "
     return encoded_bitstring[:len(encoded_bitstring)-1]
 
 def decode(bitstring: str) -> str:
     """
         convert compressed bitstring back to original string.
-        assumes `bitstring` is space separated into its run-lengths (e.g. 4 bit blocks for 4-bit run length         encoding - "0101 1010")
+        assumes `bitstring` is space separated into its run-lengths (e.g. 4 bit blocks for 4-bit run length
+        encoding - "0101 1010")
     """
     decoded_bitstring = ""
     blocks = bitstring.split(" ")
     runlen = len(blocks[0])
     max_val = 2**runlen - 1
-    for i in range(len(blocks)):
+    for i in range(len(blocks)-1):
         num_zeroes = int(blocks[i], 2)
         decoded_bitstring += "0"*num_zeroes
-        if i == len(blocks) - 1:
-            return decoded_bitstring
-        else:
-            if num_zeroes < max_val:
-                decoded_bitstring += "1"
+        if num_zeroes < max_val:
+            decoded_bitstring += "1"
+    return decoded_bitstring
 
 def perc(cmp: str, orig: str) -> float:
     """helper for calculating percentage of compressed data compared to original"""
