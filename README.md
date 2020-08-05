@@ -10,7 +10,7 @@ A program to generate Gantt charts for various process scheduling algorithms (al
 ###### lzw.py
 An implementation of the LZW compression algorithm on a string.
 ###### rle.py
-An bitwise implementation of the run length encoding compression algorithm. When I say bitwise I mean it works on a string of ones and zeroes. Also gives data about the compressed data's length as a percentage of the original.
+A bitwise implementation of the run length encoding compression algorithm. When I say bitwise I mean it works on a string of ones and zeroes. Also gives data about the compressed data's length as a percentage of the original.
 ###### sll.py
 A basic singly linked list implementation.
 ###### removeddit.py
