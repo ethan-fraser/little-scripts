@@ -13,6 +13,8 @@ An implementation of the LZW compression and decompression algorithms on a strin
 A bitwise implementation of the run length encoding compression algorithm. When I say bitwise I mean it works on a string of ones and zeroes. Also gives data about the compressed data's length as a percentage of the original.
 ###### sll.py
 A basic singly linked list implementation.
+###### ht.py
+A hash table implementation using universal hashing functions and separate chaining (i.e. each slot in the table is a linked list of items) instead of open addressing.
 ###### sorting
 Heap sort and the python version of selection sort take the name of a line separated file of numbers as a command line argument and sorts them. They don't provide timing information.
 The C ones all take a whitespace seperated string of numbers from stdin and output them sorted. They also give information to stderr about timing.
