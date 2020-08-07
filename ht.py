@@ -27,13 +27,15 @@ class LinkedList:
 
 
 class HashTable:
-    def __init__(self, capacity, p, a, b):
+    def __init__(self, capacity, p, a=None, b=None):
         self.items = [None for i in range(capacity)]
         self.capacity = capacity
-        self.a = a
-        self.b = b
-        # self.a = randint(0, 10000)
-        # self.b = randint(0, 10000)
+        if (a and b):
+            self.a = a
+            self.b = b
+        else:
+            self.a = randint(0, 10000)
+            self.b = randint(0, 10000)
         self.p = p
 
     def insert(self, item):
@@ -71,14 +73,14 @@ class HashTable:
 
 if __name__ == "__main__":
     a = [8, 22, 36, 75, 61, 13, 83, 58]
-    h = HashTable(11, 101, 4, 4)
+    h = HashTable(11, 101, 6, 10)
     for x in a:
         h.insert(x)
     h.print()
 
     print()
 
-    h2 = HashTable(11, 101, 10, 10)
+    h2 = HashTable(11, 101)
     for x in a:
         h2.insert(x)
     h2.print()
